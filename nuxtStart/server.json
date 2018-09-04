@@ -1,0 +1,10 @@
+{
+  "apps": [
+    {
+      "name": "nuxtStart",
+      "script": "npm",
+      "args" : "start",
+      "watch": [".nuxt"]
+    }
+  ]
+}
