@@ -23,8 +23,8 @@
       }
     },
     async asyncData(context) {
+      console.log(process.env.DATA_ENV);
       const res = await getWeather();
-      console.log(res);
       if (res.status === 1000) {
         return {
           city: res.data.city,

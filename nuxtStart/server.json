@@ -3,8 +3,13 @@
     {
       "name": "nuxtStart",
       "script": "npm",
-      "args" : "start",
-      "watch": [".nuxt"]
+      "args": "start",
+      "env": {
+        "DATA_ENV": "production"
+      },
+      "watch": [
+        ".nuxt"
+      ]
     }
   ]
 }

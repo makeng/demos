@@ -11,16 +11,18 @@
     }
   },
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env DATA_ENV=dev nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
-    "prod": "nuxt build && nuxt start",
+    "start": "cross-env DATA_ENV=test nuxt start",
+    "prod": " cross-env DATA_ENV=production nuxt build && nuxt start",
+    "prodStart": " cross-env DATA_ENV=production nuxt start",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "cross-env": "^5.2.0",
     "dayjs": "^1.7.5",
     "nuxt": "^1.0.0"
   },
