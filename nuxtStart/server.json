@@ -4,9 +4,6 @@
       "name": "nuxtStart",
       "script": "npm",
       "args": "start",
-      "env": {
-        "DATA_ENV": "production"
-      },
       "watch": [
         ".nuxt"
       ]
