@@ -4,8 +4,9 @@
 * ----------------------------------------------------------------------------------*/
 var InterceptorManager = require('./InterceptorManager');
 
-function fetch(config) {
-  return Promise.resolve(`发送数据${JSON.stringify(config)}`)
+function fetch() {
+  console.log("发送中");
+  return Promise.reject({code: 200, msg: "成功"})
 }
 
 function Axios() {
@@ -18,7 +19,6 @@ function Axios() {
     const chain = [fetch, undefined];
     let promise = Promise.resolve(config);
     // 压入任务
-    console.log(chain);
     this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
       chain.unshift(interceptor.fulfilled, interceptor.rejected);
     });
@@ -47,7 +47,8 @@ const axios = new Axios();
 // 拦截
 axios.interceptors.request.use(
   function (config) {
-    console.log("请求前拦截", config);
+    config.key = "1";
+    console.log("请求前拦截，增加属性", config);
     return config;
   },
   // 发送失败第一时间
@@ -57,9 +58,10 @@ axios.interceptors.request.use(
   }
 );
 axios.interceptors.response.use(
-  function (config) {
-    console.log("请求后拦截", config);
-    return config;
+  function (response) {
+    console.log("请求后拦截", response);
+    response.add = "拦截增加属性";
+    return response;
   },
   // 接收失败第一时间
   function (error) {
@@ -73,5 +75,5 @@ axios.post("test")
     console.log("发送成功", res);
   })
   .catch(err => {
-    console.log("🙅")
+    console.log("发送失败")
   });
