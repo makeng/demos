@@ -17,7 +17,7 @@ function Axios() {
 
   this.request = function (config) {
     const chain = [fetch, undefined];
-    let promise = Promise.resolve(config);
+    let promise = Promise.resolve(config); // 形成参数链，拦截函数需要返回config
     // 压入任务
     this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
       chain.unshift(interceptor.fulfilled, interceptor.rejected);
