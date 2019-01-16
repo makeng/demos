@@ -5,7 +5,7 @@ date：2017年12月26日
 -----------------------------------------*/
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
-import "../../style/containers/HomePage.less";
+import "../../style/pages/HomePage.less";
 //
 class HomePage extends React.Component {
   constructor(props) {

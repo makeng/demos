@@ -6,7 +6,7 @@ date：2017年12月18日
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
 import {OfficeButton} from "../../components";
-import "../../style/containers/Login.less";
+import "../../style/pages/Login.less";
 
 //
 class Login extends React.Component {
