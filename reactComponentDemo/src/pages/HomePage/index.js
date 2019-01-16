@@ -1,11 +1,19 @@
-/* -----------------------------------------
-about：此文件是 主页
-author：苏昱霖
-date：2017年12月26日
------------------------------------------*/
+/*----------------------------------------------------------------------------------
+* about:页面
+* author:马兆铿
+* date:2019-1-15
+* ----------------------------------------------------------------------------------*/
+
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
+import {Link} from "react-router-dom";
 import "../../style/pages/HomePage.less";
+import {List} from 'antd-mobile';
+import {route} from "../route";
+
+const Item = List.Item;
+const Brief = Item.Brief;
+
 //
 class HomePage extends React.Component {
   constructor(props) {
@@ -26,9 +34,15 @@ class HomePage extends React.Component {
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render() {
     return (
-      <div className="home">
-        123
-      </div>
+      <List renderHeader={() => "页面列表"} className="my-list">
+        {
+          route.map(item =>
+            <Link to={item.path}>
+              <Item>{item.name}</Item>
+            </Link>
+          )
+        }
+      </List>
     );
   }
 }

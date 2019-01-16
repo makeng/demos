@@ -6,10 +6,10 @@ date：2017年12月18日
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
 import {OfficeButton} from "../../components";
-import "../../style/pages/Login.less";
+import "../../style/pages/Scroller.less";
 
 //
-class Login extends React.Component {
+class Scroller extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -28,10 +28,10 @@ class Login extends React.Component {
   render() {
     return (
       <div className="login">
-
+    dfsafs
       </div>
     );
   }
 }
 
-export default Login;
+export default Scroller;
