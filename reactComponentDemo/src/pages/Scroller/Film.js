@@ -9,7 +9,7 @@ function Data(id, desc) {
   this.desc = desc;
 }
 
-class Film {
+export default class Film {
   constructor() {
     this.list = [];
     this._index = 0;
@@ -27,5 +27,4 @@ class Film {
   }
 }
 
-export const film = new Film();
 

@@ -1,53 +1,64 @@
 /*----------------------------------------------------------------------------------
-* about:页面
+* about:数据对象
 * author:马兆铿
-* date:2019-1-15
+* date:
 * ----------------------------------------------------------------------------------*/
-
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
-import {Link} from "react-router-dom";
-import "../../style/pages/HomePage.less";
+import Film from "../Film";
 import {List} from 'antd-mobile';
-import {route} from "../route";
+import {on} from "../../../utils/lib/dom";
+import "../../../style/pages/Scroller.less";
 
 const Item = List.Item;
 const Brief = Item.Brief;
 
 //
-class HomePage extends React.Component {
+class Screen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      film: new Film()
+    };
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
   componentDidMount() {
+    /*    const el = document.getElementById("scroll-list");
+        console.log(el);
+        on(el, "onscroll", e => {
+          this.onScroll(e);
+        });*/
 
+    document.getElementById("scroll-list").onscroll = this.onScroll();
+
+
+    //window.addEventListener('scroll', this.onScroll);
   }
 
   /* ----------------------------------------- 自定义方法 ----------------------------------------- */
 
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
+  onScroll(e) {
+    console.log(e);
+  }
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render() {
+    const {film} = this.state;
     return (
-      <List renderHeader={() => "页面列表"} className="my-list">
-        {
-          route.map(item =>
-            <Link
-              to={item.path}
-              key={item.path}
-            >
-              <Item>{item.name}</Item>
-            </Link>
-          )
-        }
-      </List>
+      <div className="screen">
+        <List id="scroll-list" onScroll={this.onScroll}>
+          {
+            film.list.map(item =>
+              <Item key={item.id}>{item.desc}</Item>
+            )
+          }
+        </List>
+      </div>
     );
   }
 }
 
-export default HomePage;
+export default Screen;
