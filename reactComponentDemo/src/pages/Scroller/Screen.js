@@ -5,12 +5,8 @@ date：2017年12月18日
 -----------------------------------------*/
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
-import {film} from "./Film";
+import {OfficeButton} from "../../components";
 import "../../style/pages/Scroller.less";
-import {List} from 'antd-mobile';
-
-const Item = List.Item;
-const Brief = Item.Brief;
 
 //
 class Scroller extends React.Component {
@@ -31,14 +27,8 @@ class Scroller extends React.Component {
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render() {
     return (
-      <div className="scroller">
-        <List renderHeader={() => "无限滚动"} className="my-list">
-          {
-            film.list.map(item =>
-              <Item>{item.desc}</Item>
-            )
-          }
-        </List>
+      <div className="login">
+    dfsafs
       </div>
     );
   }
