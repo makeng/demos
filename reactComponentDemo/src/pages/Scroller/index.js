@@ -29,9 +29,7 @@ class Scroller extends React.Component {
     return (
       <div className="page">
         <header>无限滚动</header>
-        <div className="scroller">
           <Screen/>
-        </div>
       </div>
     );
   }
