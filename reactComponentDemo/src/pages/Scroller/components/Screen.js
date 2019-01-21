@@ -5,7 +5,7 @@
 * ----------------------------------------------------------------------------------*/
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, {PureComponent, PropTypes} from "react";
-import Film from "../Film";
+import Film from "../js/Film";
 import {List} from 'antd-mobile';
 import {on} from "../../../utils/lib/dom";
 import "../../../style/pages/Scroller.less";
@@ -63,7 +63,6 @@ class Screen extends React.Component {
   render() {
     const {film, screen} = this.state;
     const OFFSET = 3;
-    console.log(screen);
     return (
       <div className="scroller">
         <List id="scroll-list" onScroll={this.onScroll}>
