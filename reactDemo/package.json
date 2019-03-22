@@ -2,6 +2,12 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "dev": "webpack-dev-server --host 0.0.0.0 --config webpack.dev.js",
+    "test": " cross-env MODLE=test  webpack --hide-modules  --progress --colors --profile --config  webpack.prod.js  ",
+    "dll": "webpack --config webpack.dll.config.js",
+    "publish": "webpack --progress --colors --hide-modules  --config webpack.prod.js "
+  },
   "devDependencies": {
     "babel-core": "^6.18.0",
     "babel-loader": "^6.2.7",
@@ -56,11 +62,5 @@
     "webpack-hot-middleware": "^2.13.1",
     "webpack-manifest-plugin": "^1.1.0",
     "webpack-md5-hash": "0.0.5"
-  },
-  "scripts": {
-    "dev": "webpack-dev-server --host 0.0.0.0 --config webpack.dev.js",
-    "test": " cross-env MODLE=test  webpack --hide-modules  --progress --colors --profile --config  webpack.prod.js  ",
-    "dll": "webpack --config webpack.dll.config.js",
-    "publish": "webpack --progress --colors --hide-modules  --config webpack.prod.js "
   }
 }

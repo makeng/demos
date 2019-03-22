@@ -3,8 +3,9 @@ import asyncRoute from "../utils/asyncRoute";
 import "../style/reset.less";
 /*-------------------------------------------- 路由对象 --------------------------------------------*/
 //组件
-const Scroller = asyncRoute(() => import("./Scroller"));
 const HomePage = asyncRoute(() => import("./HomePage"));
+const Scroller = asyncRoute(() => import("./Scroller"));
+const FilesDownload = asyncRoute(() => import("./FilesDownload"));
 //route
 export const route = [
   {
@@ -16,7 +17,12 @@ export const route = [
     name: "无限滚动",
     path: "/Scroller",
     component: Scroller
-  }
+  },
+  {
+    name: "文件传输服务",
+    path: "/FilesDownload",
+    component: FilesDownload
+  },
 ];
 
 /*-------------------------------------------- 热加载设置 --------------------------------------------*/
@@ -24,5 +30,6 @@ export const route = [
 if (process.env.NODE_ENV !== "production") {
   // ... 有多少异步模块就 require 多少，不可以使用变量或者对象来require
   require("./Scroller");
-  require("./HomePage")
+  require("./HomePage");
+  require("./FilesDownload");
 }
