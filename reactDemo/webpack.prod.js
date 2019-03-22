@@ -14,7 +14,7 @@ module.exports = {
   entry: {
     app: [
       "babel-polyfill",
-      "./src/main" // 入口文件
+      "./src/main.js" // 入口文件
     ]
   },
   // 解析路径

@@ -124,35 +124,6 @@ body {
 .rotate-180deg {
   transform: rotate(180deg);
 }
-/*------------------------------------------------------------------------------------------------------------------
-about：此文件是样式标准，用变量的形式来统一
-author：马兆铿
-date：2017-11-14
-------------------------------------------------------------------------------------------------------------------*/
-/*字体方案*/
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 1.35135135rem;
-  line-height: 1.35135135rem;
-  text-align: center;
-  font-size: 0.44rem;
-  box-shadow: 0 0.266667rem 0.266667rem rgba(0, 0, 0, 0.2);
-  width: 100%;
-  z-index: 10;
-  background: #fff;
-}
-.page {
-  padding-top: 1.35135135rem;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-.scroller {
-  flex: 1;
-  overflow: scroll;
-}
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -1225,5 +1196,62 @@ author：马兆铿
 date：2017-11-14
 ------------------------------------------------------------------------------------------------------------------*/
 /*字体方案*/
+/*------------------------------------------------------------------------------------------------------------------
+about：此文件是样式标准，用变量的形式来统一
+author：马兆铿
+date：2017-11-14
+------------------------------------------------------------------------------------------------------------------*/
+/*字体方案*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1.35135135rem;
+  line-height: 1.35135135rem;
+  text-align: center;
+  font-size: 0.44rem;
+  box-shadow: 0 0.266667rem 0.266667rem rgba(0, 0, 0, 0.2);
+  width: 100%;
+  z-index: 10;
+  background: #fff;
+}
+.page {
+  padding-top: 1.35135135rem;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.scroller {
+  flex: 1;
+  overflow: scroll;
+}
+/*------------------------------------------------------------------------------------------------------------------
+about：此文件是样式标准，用变量的形式来统一
+author：马兆铿
+date：2017-11-14
+------------------------------------------------------------------------------------------------------------------*/
+/*字体方案*/
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 1.35135135rem;
+  line-height: 1.35135135rem;
+  text-align: center;
+  font-size: 0.44rem;
+  box-shadow: 0 0.266667rem 0.266667rem rgba(0, 0, 0, 0.2);
+  width: 100%;
+  z-index: 10;
+  background: #fff;
+}
+.page-files {
+  background: #F5F5F9;
+}
+.files-iframe {
+  border: 0;
+  width: 100%;
+  overflow: scroll;
+  min-height: 5.40540541rem;
+}
 
-/*# sourceMappingURL=app.f23b4815311c2e1d9734.css.map*/
+/*# sourceMappingURL=app.f7f479977c8c2064f933.css.map*/

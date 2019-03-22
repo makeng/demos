@@ -8,6 +8,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import {AppContainer} from "react-hot-loader";
 import Root from "./pages/Root";
+global._babelPolyfill = false;
 
 // 定义要挂载的 DOM 节点
 const mountNode = document.getElementById("app");
