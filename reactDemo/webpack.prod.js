@@ -13,7 +13,6 @@ module.exports = {
   // 程序入口文件，多页面构建
   entry: {
     app: [
-      "babel-polyfill",
       "./src/main.js" // 入口文件
     ]
   },
