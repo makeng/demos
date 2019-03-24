@@ -26,7 +26,7 @@ const render = Component => {
 render(Root);
 
 // 配置需要热模块替换的条件
-if (module.hot && process.env.NODE_ENV !== "production") {
+if (module.hot && process.env.NODE_ENV === "development") {
   // 处理对特定依赖的更改
   if (module.hot) {
     module.hot.accept('./pages/Root', () => {
