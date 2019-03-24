@@ -6,7 +6,6 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import {AppContainer} from "react-hot-loader";
 import Root from "./pages/Root";
 
 // 定义要挂载的 DOM 节点
@@ -15,9 +14,7 @@ const mountNode = document.getElementById("app");
 // 封装 render 函数
 const render = Component => {
   ReactDOM.render(
-    <AppContainer>
-      <Component/>
-    </AppContainer>,
+    <Component/>,
     mountNode
   );
 };
