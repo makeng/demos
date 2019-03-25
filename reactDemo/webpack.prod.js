@@ -39,7 +39,7 @@ module.exports = {
       "process.env.NODE_ENV": '"production"'
     }),
     new webpack.DefinePlugin({
-      "process.env.MODLE": JSON.stringify(process.env.MODLE) 
+      "process.env.MODLE": JSON.stringify(process.env.MODLE)
     }),
     new ExtractTextPlugin({
       filename: "[name].[chunkhash].css",
