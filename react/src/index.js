@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 //import Homepage from "./pages/HomePage";
 
-const title = 'My Minimal React Webpack Babel Setup';
+const title = '成功运行';
 
 ReactDOM.render(
   <div>{title}</div>,
