@@ -41,12 +41,13 @@ class FilesDownload extends React.Component {
       <div className="page-files">
         <List renderHeader={() => "文件列表"} className="my-list">
           <Item>
-            <Brief>快应用最新rpk：com开头：正式，test开头：测试</Brief>
-            <iframe className="files-iframe" src="http://makeng.xyz:8005/oppo/new"/>
+            <Brief>快应用最新rpk</Brief>
+            <Brief>（正式版本：com开头，测试版本：test开头）</Brief>
+            <iframe className="files-iframe" src="http://203.195.160.236:8005/oppo/new"/>
           </Item>
           <Item>
             <Brief>快应用历史rpk</Brief>
-            <iframe className="files-iframe" src="http://makeng.xyz:8005/oppo/history"/>
+            <iframe className="files-iframe" src="http://203.195.160.236:8005/oppo/history"/>
           </Item>
         </List>
       </div>
