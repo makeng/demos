@@ -6,6 +6,7 @@ import "../style/reset.less";
 const HomePage = asyncRoute(() => import("./HomePage"));
 const Scroller = asyncRoute(() => import("./Scroller"));
 const FilesDownload = asyncRoute(() => import("./FilesDownload"));
+const ChartHandle = asyncRoute(() => import("./ChartHandle"));
 //route
 export const route = [
   {
@@ -23,6 +24,11 @@ export const route = [
     path: "/FilesDownload",
     component: FilesDownload
   },
+  {
+    name: "图表",
+    path: "/ChartHandle",
+    component: ChartHandle
+  }
 ];
 
 /*-------------------------------------------- 热加载设置 --------------------------------------------*/
@@ -32,4 +38,5 @@ if (process.env.NODE_ENV !== "production") {
   require("./Scroller");
   require("./HomePage");
   require("./FilesDownload");
+  require("./ChartHandle");
 }
