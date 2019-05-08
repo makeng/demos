@@ -8,6 +8,7 @@
 import React, { PureComponent, PropTypes } from "react";
 import { List } from "antd-mobile";
 import ChartTime from "./components/ChartTime";
+import ChartThread from "./components/ChartThread";
 
 const Item = List.Item;
 const Brief = Item.Brief;
@@ -36,8 +37,12 @@ class ChartHandle extends React.Component {
       <div className="page-chart">
         <List renderHeader={() => "大数组"} className="my-list">
           <Item>
-            <Brief>分时处理</Brief>
+            <Brief>更新：分时处理</Brief>
             <ChartTime/>
+          </Item>
+          <Item>
+            <Brief>一次渲染万级：伪线程</Brief>
+            <ChartThread/>
           </Item>
         </List>
       </div>
