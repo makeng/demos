@@ -6,131 +6,38 @@
 
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React, { PureComponent, PropTypes } from "react";
-import "../../style/pages/ChartHandle.less";
 import { List } from "antd-mobile";
-import echarts from "echarts/lib/echarts";
-import "echarts/lib/chart/line";
+import ChartTime from "./components/ChartTime";
 
 const Item = List.Item;
 const Brief = Item.Brief;
-const createRandomArr = function(length) {
-  return Array.from({length}).map(() => parseInt(Math.random() * TOTAL_CHANGE_LENGTH));
-};
-const TOTAL_CHANGE_LENGTH = 2000;
-const CHANGE_LENGTH = 100;
 
 //
-class FilesDownload extends React.Component {
+class ChartHandle extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.chartTimer = 0;
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
   componentDidMount() {
-    this.renderFalseThreadChart(echarts);
   }
 
   componentWillUnmount() {
-    clearInterval(this.chartTimer);
   }
 
   /* ----------------------------------------- 自定义方法 ----------------------------------------- */
-  renderFalseThreadChart(ec) {
-    // 基于准备好的dom，初始化echarts图表
-    var myChart = ec.init(document.getElementById("chart-false-thread"), "blue");
-    let dataArr = createRandomArr(TOTAL_CHANGE_LENGTH);
-    let orderArr = Array.from({length: TOTAL_CHANGE_LENGTH}).map((item, index) => index);
-    // 为echarts对象加载数据
-    const option = {
-      title: {
-        text: "某楼盘销售情况",
-        subtext: "纯属虚构"
-      },
-      tooltip: {
-        trigger: "axis"
-      },
-      legend: {
-        data: ["意向", "预购", "成交"]
-      },
-      toolbox: {
-        show: true,
-        feature: {
-          mark: {show: true},
-          dataView: {show: true, readOnly: false},
-          magicType: {show: true, type: ["line", "bar", "stack", "tiled"]},
-          restore: {show: true},
-          saveAsImage: {show: true}
-        }
-      },
-      calculable: true,
-      xAxis: [
-        {
-          type: "category",
-          boundaryGap: false,
-          data: orderArr
-        }
-      ],
-      yAxis: [
-        {
-          boundaryGap: [0, "50%"],
-          type: "value"
-        }
-      ],
-      series: [
-        {
-          name: "成交",
-          type: "line",
-          smooth: true,
-          stack: "a",
-          areaStyle: {
-            normal: {}
-          },
-          itemStyle: {normal: {areaStyle: {type: "blue"}}},
-          data: dataArr
-        }
-      ]
-    };
-    // 操作的数组
-
-    myChart.setOption(option);
-    this.chartTimer = setInterval(() => {
-      // x轴
-      orderArr.splice(0, CHANGE_LENGTH);
-      const addOrderArr = Array
-        .from({length: CHANGE_LENGTH})
-        .map((item, index) => index + orderArr[orderArr.length - 1] + 1);
-      orderArr = orderArr.concat(addOrderArr);
-      // y轴
-      const addDataArr = createRandomArr(CHANGE_LENGTH);
-      dataArr.splice(0, CHANGE_LENGTH);
-      dataArr = dataArr.concat(addDataArr);
-      myChart.setOption({
-        xAxis: {
-          data: orderArr
-        },
-        series: [{
-          name: "成交",
-          data: dataArr
-        }]
-      });
-    }, 1000);
-  }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render() {
-    const {list} = this.state;
     return (
       <div className="page-chart">
         <List renderHeader={() => "大数组"} className="my-list">
           <Item>
-            <Brief>用「伪线程」处理</Brief>
-            <div id="chart-false-thread">
-              123
-            </div>
+            <Brief>分时处理</Brief>
+            <ChartTime/>
           </Item>
         </List>
       </div>
@@ -138,4 +45,4 @@ class FilesDownload extends React.Component {
   }
 }
 
-export default FilesDownload;
+export default ChartHandle;
