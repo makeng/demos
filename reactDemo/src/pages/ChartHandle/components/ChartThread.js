@@ -13,30 +13,27 @@ import "echarts/lib/chart/line";
 const createRandomArr = function(length) {
   return Array.from({length}).map(() => parseInt(Math.random() * 100));
 };
-const TOTAL_LENGTH = 2000;
-const CHANGE_LENGTH = 100;
+const TOTAL_LENGTH = 10000;
 
 //
-class ChartTime extends React.Component {
+class ChartThread extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.chartTimer = 0;
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
   componentDidMount() {
-    this.renderChartTime(echarts);
+    this.renderChartThread(echarts);
   }
 
   componentWillUnmount() {
-    clearInterval(this.chartTimer);
   }
 
   /* ----------------------------------------- 自定义方法 ----------------------------------------- */
-  renderChartTime(ec) {
+  renderChartThread(ec) {
     // 基于准备好的dom，初始化echarts图表
-    const myChart = ec.init(document.getElementById("chart-time"), "blue");
+    const myChart = ec.init(document.getElementById("chart-thread"), "blue");
     let dataArr = createRandomArr(TOTAL_LENGTH);
     let orderArr = Array.from({length: TOTAL_LENGTH}).map((item, index) => index);
     // 为echarts对象加载数据
@@ -85,34 +82,60 @@ class ChartTime extends React.Component {
             normal: {}
           },
           itemStyle: {normal: {areaStyle: {type: "blue"}}},
-          data: dataArr
+          data: []
         }
       ]
     };
-    // 操作的数组
-
     myChart.setOption(option);
-    this.chartTimer = setInterval(() => {
-      // x轴
-      orderArr.splice(0, CHANGE_LENGTH);
-      const addOrderArr = Array
-        .from({length: CHANGE_LENGTH})
-        .map((item, index) => index + orderArr[orderArr.length - 1] + 1);
-      orderArr = orderArr.concat(addOrderArr);
-      // y轴
-      const addDataArr = createRandomArr(CHANGE_LENGTH);
-      dataArr.splice(0, CHANGE_LENGTH);
-      dataArr = dataArr.concat(addDataArr);
-      myChart.setOption({
-        xAxis: {
-          data: orderArr
-        },
-        series: [{
-          name: "成交",
-          data: dataArr
-        }]
+
+    /**
+     * 线程构造
+     */
+    const Thread = function(timeGap) {
+      this.list = [];
+      this.timer = undefined;
+      /**
+       * 开始执行
+       */
+      this.start = function() {
+        const _this = this;
+        this.timer = setInterval(function() {
+          if (_this.list.length) {
+            var fn = _this.list.shift();
+            setTimeout(fn, 0);
+          }
+        }, timeGap || 1);
+      };
+      /**
+       * 停止执行
+       */
+      this.stop = function() {
+        clearInterval(this.timer);
+      };
+      /**
+       * 添加任务
+       * @param fn
+       */
+      this.addThread = function(fn) {
+        this.list.push(fn);
+      };
+    };
+    // 执行
+    var thread = new Thread(100);
+    thread.start();
+
+    // 事件队列生成
+    const RENDER_TIMES = 10;
+    for (let i = 0; i < RENDER_TIMES; i++) {
+      thread.addThread(function() {
+        myChart.setOption({
+          series: [{
+            name: "成交",
+            data: dataArr.slice(0, dataArr.length / RENDER_TIMES * (i + 1))
+          }]
+        });
       });
-    }, 1000);
+    }
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
@@ -120,9 +143,9 @@ class ChartTime extends React.Component {
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render() {
     return (
-      <div id="chart-time"></div>
+      <div id="chart-thread"></div>
     );
   }
 }
 
-export default ChartTime;
+export default ChartThread;
