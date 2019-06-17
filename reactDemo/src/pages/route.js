@@ -6,6 +6,7 @@ import "../style/reset.less";
 const HomePage = asyncRoute(() => import("./HomePage"));
 const Scroller = asyncRoute(() => import("./Scroller"));
 const FilesDownload = asyncRoute(() => import("./FilesDownload"));
+const BrowserCheck = asyncRoute(() => import("./BrowserCheck"));
 const ChartHandle = asyncRoute(() => import("./ChartHandle"));
 //route
 export const route = [
@@ -23,6 +24,11 @@ export const route = [
     name: "文件传输服务",
     path: "/FilesDownload",
     component: FilesDownload
+  },
+  {
+    name: "浏览器检测服务",
+    path: "/BrowserCheck",
+    component: BrowserCheck
   },
   {
     name: "图表",
