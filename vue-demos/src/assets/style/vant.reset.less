@@ -1,0 +1,63 @@
+/*------------------------------------------------------------------------------------------
+about：此文件vant样式库的重置文件
+author：马兆铿
+date：2018-5-28
+------------------------------------------------------------------------------------------*/
+@import "var.less";
+//按钮
+.van-button {
+  width: 100%;
+  font-size: @font-size-L;
+}
+
+.van-button--primary {
+  background: @color-brand;
+  color: #fff;
+  border: none;
+  @height: 40/37rem;
+  height: @height;
+  line-height: @height;
+  border-radius: @height / 2;
+}
+
+.van-button--danger {
+  background: transparent;
+  color: #fa3232;
+  width: 80/37rem;
+  border: none;
+}
+
+//轻提示
+.van-toast--text {
+  min-width: 100px;
+}
+
+//对话框
+.van-dialog__message,
+.van-cell {
+  font-size: @font-size-M;
+}
+
+.van-dialog__message {
+  text-align: center;
+}
+
+//搜索框
+.van-search__cancel,
+.van-picker__confirm {
+  color: #30c0b1;
+}
+
+.van-search {
+  .van-icon {
+  }
+}
+
+.van-picker__cancel {
+  color: #4a4a4a;
+}
+
+// grid布局
+.van-grid-item__content {
+  padding: 0;
+}

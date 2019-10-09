@@ -1,0 +1,172 @@
+/*-------------------------------------------------------------------
+about：此文件是样式的初始化
+author：马兆铿
+date：2017-11-14
+-------------------------------------------------------------------*/
+@import "var.less";
+
+/*--------------------------- 样式重置 ---------------------------*/
+body, ul, figure, li, ol, p, h1, h2, h3, h4, h5, h6, dl, dd, dt, button {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  border-radius: 0;
+}
+
+img {
+  border: 0;
+}
+
+button {
+  border: 0;
+  cursor: pointer;
+  outline: 0 !important;
+  background: none;
+  box-shadow: none;
+  transition: background 100ms ease-in-out;
+  user-select:none;
+}
+
+a {
+  text-decoration: none;
+  outline: none;
+}
+
+a:visited, a:active, a:hover, a:link {
+  text-decoration: none;
+  outline: none;
+}
+
+ul, li, ol {
+  list-style: none;
+}
+
+strong, em, b {
+  font-weight: normal;
+  font-style: normal;
+}
+
+input {
+  border: none;
+  border-radius: 0;
+}
+
+/*ie10输入框图标去除*/
+::-ms-clear,
+::-ms-reveal {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  color: @font-color-normal;
+  font-size: @font-size-M;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+//placeholder
+::-webkit-input-placeholder {
+  color: #d2d2d2;
+}
+
+:-moz-placeholder {
+  color: #d2d2d2;
+}
+
+::-moz-placeholder {
+  color: #d2d2d2;
+}
+
+/* for the future */
+:-ms-input-placeholder {
+  color: #d2d2d2;
+}
+
+/*--------------------------- 通用类 ---------------------------*/
+//居中
+.text-align-center {
+  text-align: center;
+}
+
+.text-indent-1em {
+  text-indent: 1em;
+}
+
+.no-border {
+  border: 0 !important;
+}
+
+.clearfix:after {
+  display: block;
+  content: "clear";
+  clear: both;
+  line-height: 0;
+  visibility: hidden;
+}
+
+.absolute-xy-middle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.absolute-x-middle {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.absolute-y-middle {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+//文本溢出省略号
+.text-overflow-dots {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+/*--------------------------- 常用动画 ---------------------------*/
+
+/*--------------------------- 常用样式 ---------------------------*/
+.mr-20 {
+  margin-right: 20px;
+}
+
+.ml-20 {
+  margin-left: 20px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/*--------------------------- vue官方过渡动画 ---------------------------*/
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s;
+}
+
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0;
+}

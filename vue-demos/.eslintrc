@@ -1,0 +1,115 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "parser": "babel-eslint"
+  },
+  "extends": [
+    "airbnb-base",
+    "plugin:vue/recommended"
+  ],
+  "plugins": [
+    "html"
+  ],
+  "settings": {
+    "html/html-extensions": [
+      ".html",
+      ".vue"
+    ]
+    // consider .html and .we files as HTML
+  },
+  "rules": {
+    /* ----------------------------------------- vue ----------------------------------------- */
+
+    /* ----------------------------------------- 普通 ----------------------------------------- */
+    "comma-dangle": "off",
+    "no-class-assign": "off",
+    "import/no-unresolved": "off",
+    "no-underscore-dangle": "off",
+    "no-new-func": "off",
+    "no-param-reassign": "off",
+    "no-restricted-syntax": "off",
+    "linebreak-style": "off",
+    "class-methods-use-this": "off",
+    "no-continue": "off",
+    // 箭头函数不许换行
+    "implicit-arrow-linebreak": "off",
+    // 不允许箭头函数单参数没有括号
+    "arrow-parens": "off",
+    // 必须要用驼峰
+    "camelcase": "off",
+    // 不允许未定义
+    "no-undef": "off",
+    // 规定默认用 export default
+    "import/prefer-default-export": "off",
+    // 对象多属性时候换行
+    "object-curly-newline": "off",
+    // 语句后面接注释
+    "no-trailing-spaces": "off",
+    // 逻辑运算必须在前面
+    "operator-linebreak": "off",
+    // 加加号
+    "no-plusplus": "off",
+    // 建议用模版字面量，而不是字符串连接
+    "prefer-template": "off",
+    // 函数声明第一行不能空行
+    "padded-blocks": "off",
+    // 主张用 Error 代替 Promise.reject
+    "prefer-promise-reject-errors": "off",
+    "brace-style": "off",
+    // 不准同时用 / 和 %
+    "no-mixed-operators": "off",
+    // 有全局参数，就不需要让其成为函数参数，而是直接使用
+    "no-shadow": "off",
+    // 不建议用 arguments
+    "prefer-rest-params": "off",
+    // parseInt 要加第二个参数
+    "radix": "off",
+    // 一行最多多少单词
+    "max-len": [
+      "error",
+      {
+        "code": 120
+      }
+    ],
+    // 引号
+    "quotes": [
+      "error",
+      "single",
+      {
+        "allowTemplateLiterals": true
+      }
+    ],
+    // 允许使用require语句
+    "global-require": "off",
+    // 允许出现的未使用表达式
+    "no-unused-expressions": [
+      1,
+      {
+        // 允许简单二元表达式，比如 fn && fn()
+        "allowShortCircuit": true,
+        // 允许三元表达式
+        "allowTernary": true
+      }
+    ],
+    // 函数命名
+    "func-names": [
+      "error",
+      "never"
+    ],
+    // console函数
+    "no-console": "off",
+    "semi": [
+      "error",
+      "never"
+    ],
+    // 函数后面空格
+    "space-before-function-paren": [
+      "error",
+      "always"
+    ]
+  }
+}
