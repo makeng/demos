@@ -1,0 +1,28 @@
+@import "../standard";
+
+@headerHeight: 50/37rem;
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: @headerHeight;
+  line-height: @headerHeight;
+  text-align: center;
+  font-size: @fontSize_M;
+  box-shadow: 0 10px 10px rgba(0,0,0,.2);
+  width: 100%;
+  z-index: 10;
+  background: #fff;
+}
+
+.page {
+  padding-top: @headerHeight;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.scroller {
+  flex: 1;
+  overflow: scroll;
+}
