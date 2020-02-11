@@ -46,7 +46,7 @@ class Screen extends React.Component {
   /**
    * 设置可视窗口参数
    */
-  setScreen (start, end) {
+  setVisibleItemIndex (start, end) {
     const screen = {
       start: parseInt(start),
       end: parseInt(end)
@@ -68,13 +68,13 @@ class Screen extends React.Component {
   onScroll (e) {
     const target = e.target
     const scrollHeight = target.scrollHeight // 真正高度
-    const offsetHeight = target.offsetHeight //窗口高度
+    const offsetHeight = target.offsetHeight // CSS 高度
     const scrollTop = target.scrollTop // 滚动了多少
 
     // 设置屏幕
-    const screenStart = target.scrollTop / ITEM_HEIGHT
-    const screenEnd = (target.scrollTop + target.offsetHeight) / ITEM_HEIGHT
-    this.setScreen(screenStart, screenEnd)
+    const startIndex = target.scrollTop / ITEM_HEIGHT
+    const endIndex = (target.scrollTop + target.offsetHeight) / ITEM_HEIGHT
+    this.setVisibleItemIndex(startIndex, endIndex)
 
     // 触底
     if (offsetHeight + scrollTop + 100 >= scrollHeight) {
@@ -85,7 +85,6 @@ class Screen extends React.Component {
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
     const { dataList, screen } = this.state
-    const OFFSET = 3
     return (
       <div className="scroller">
         <List id="scroll-list" onScroll={this.onScroll}>
@@ -98,7 +97,7 @@ class Screen extends React.Component {
               >
                 {
                   /* 可视窗口的数据才能显示 */
-                  (item.id <= screen.end - OFFSET && item.id >= screen.start + OFFSET) &&
+                  (item.id <= screen.end && item.id >= screen.start) &&
                   <Item extra={'数据'}>
                     {item.desc}
                   </Item>
