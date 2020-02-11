@@ -15,6 +15,7 @@ const Brief = Item.Brief
 
 const ITEM_HEIGHT = 40
 const APPEND_ITEM_CNT = 50 // 每次增加的数量
+const ITEM_OFFSET = -1 // 预留空间
 
 //
 class Screen extends React.Component {
@@ -97,7 +98,7 @@ class Screen extends React.Component {
               >
                 {
                   /* 可视窗口的数据才能显示 */
-                  (item.id <= screen.end && item.id >= screen.start) &&
+                  (item.id <= screen.end - ITEM_OFFSET && item.id >= screen.start + ITEM_OFFSET) &&
                   <Item extra={'数据'}>
                     {item.desc}
                   </Item>
