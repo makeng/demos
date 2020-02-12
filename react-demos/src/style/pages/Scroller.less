@@ -26,7 +26,8 @@
 .scroller {
   flex: 1;
   overflow: scroll;
-  &-list__item{
+
+  &-list__item {
     display: flex;
     align-items: center;
   }
@@ -39,21 +40,17 @@
   overflow: hidden;
 
   &__avatar {
-    width: 100/37rem;
-
+    padding: 5/37rem 10/37rem;
     img {
-      width: 70/37rem;
-      height: 70/37rem;
+      width: 40/37rem;
     }
   }
 
   &__desc {
+    flex: 1;
+
     div {
       font-size: @fontSize_L;
-    }
-
-    p {
-      text-align: right;
     }
   }
 }
