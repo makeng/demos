@@ -14,7 +14,6 @@ class DataItem {
 
 // 仿真数据列表类
 class DataList {
-
   constructor () {
     this.content = []
     this.itemCnt = 0 // item 数量，用于生成 id

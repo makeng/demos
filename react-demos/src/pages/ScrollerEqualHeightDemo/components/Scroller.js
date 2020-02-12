@@ -5,26 +5,22 @@
 * ----------------------------------------------------------------------------------*/
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React from 'react'
-import { DataList } from '../js/DataList'
 import { on } from '../../../utils/lib/dom'
 import '../../../style/pages/Scroller.less'
 
-const APPEND_ITEM_CNT = 50 // 每次增加的数量
 const ITEM_OFFSET = -1 // 预留空间
 
 //
-class Screen extends React.Component {
+class Scroller extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      dataList: new DataList(),
       screen: { start: 0, end: 999 }
     }
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
   componentDidMount () {
-    this.dataListAppendMoreItems()
     this.attachScrollEvent()
   }
 
@@ -47,17 +43,8 @@ class Screen extends React.Component {
       start: parseInt(start),
       end: parseInt(end)
     }
+    console.log(`允许显示范围：${JSON.stringify(screen)}`)
     this.setState({ screen })
-  }
-
-  /**
-   * 加载更多数据
-   */
-  dataListAppendMoreItems () {
-    const { dataList } = this.state
-    dataList.appendDataItem(APPEND_ITEM_CNT)
-    console.log(dataList)
-    this.setState({ dataList })
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
@@ -75,30 +62,28 @@ class Screen extends React.Component {
 
     // 触底
     if (offsetHeight + scrollTop + 100 >= scrollHeight) {
-      this.dataListAppendMoreItems()
+      this.props.onScrollToBottom()
     }
   }
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
-    const { dataList, screen } = this.state
-    const { itemHeight } = this.props
+    const { screen } = this.state
+    const { children, itemHeight } = this.props
     return (
       <div className="scroller">
         <div id="scroll-list" onScroll={this.onScroll}>
           {
-            dataList.content.map(item =>
+            children.map(item =>
               <div
+                className="scroll-list__item"
                 style={{ height: `${itemHeight}px` }}
-                key={item.id}
-                className="item-wrap"
+                key={item.key}
               >
                 {
-                  /* 可视窗口的数据才能显示 */
-                  (item.id <= screen.end - ITEM_OFFSET && item.id >= screen.start + ITEM_OFFSET) &&
-                  <div>
-                    {item.desc}
-                  </div>
+                  /* 控制内容是否显示 */
+                  (item.key <= screen.end - ITEM_OFFSET && item.key >= screen.start + ITEM_OFFSET)
+                  && item
                 }
               </div>
             )
@@ -109,4 +94,4 @@ class Screen extends React.Component {
   }
 }
 
-export default Screen
+export default Scroller

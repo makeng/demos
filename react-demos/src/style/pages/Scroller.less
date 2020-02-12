@@ -1,7 +1,15 @@
 @import "../standard";
 
 @headerHeight: 50/37rem;
-header {
+
+.page {
+  padding-top: @headerHeight;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.page__header {
   position: fixed;
   top: 0;
   left: 0;
@@ -15,14 +23,14 @@ header {
   background: #fff;
 }
 
-.page {
-  padding-top: @headerHeight;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-}
-
 .scroller {
   flex: 1;
   overflow: scroll;
+}
+
+.content-item {
+  border-bottom: 1px solid #ccc;
+  p{
+    text-align: right;
+  }
 }
