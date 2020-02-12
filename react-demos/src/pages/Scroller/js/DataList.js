@@ -14,17 +14,17 @@ class DataItem {
 
 // 仿真数据列表类
 class DataList {
-  static id = 0
 
   constructor () {
     this.content = []
+    this.itemCnt = 0 // item 数量，用于生成 id
   }
 
   appendDataItem (cnt) {
     const list = []
     for (let i = 1; i <= cnt; i++) {
-      list.push(new DataItem(DataList.id, `I am No.${DataList.id}`))
-      DataList.id += 1
+      list.push(new DataItem(this.itemCnt, `I am No.${this.itemCnt}`))
+      this.itemCnt += 1
     }
     this.content = this.content.concat(list)
   }
