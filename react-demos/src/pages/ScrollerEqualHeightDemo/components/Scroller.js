@@ -9,6 +9,7 @@ import { on } from '../../../utils/lib/dom'
 import '../../../style/pages/Scroller.less'
 
 const ITEM_OFFSET = -1 // 预留空间
+const CALL_TIME_GAP = 100 // 滚动处理间隔
 
 //
 class Scroller extends React.Component {
@@ -17,6 +18,8 @@ class Scroller extends React.Component {
     this.state = {
       screen: { start: 0, end: 999 }
     }
+    // 滚动用参数
+    this.lastScrollY = 0
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
@@ -49,15 +52,20 @@ class Scroller extends React.Component {
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
   onScroll (e) {
-    const { itemHeight } = this.props
     const target = e.target
-    const scrollHeight = target.scrollHeight // 真正高度
-    const offsetHeight = target.offsetHeight // CSS 高度
-    const scrollTop = target.scrollTop // 滚动了多少
+    const { scrollTop, scrollHeight, offsetHeight } = target // 滚动了多少、真正高度和CSS 高度
+
+    const { itemHeight } = this.props
+
+    // 滚动间隔过小则返回
+    if (Math.abs(this.lastScrollY - scrollTop) < itemHeight / 2) {
+      return
+    }
+    this.lastScrollY = scrollTop
 
     // 设置屏幕
-    const startIndex = target.scrollTop / itemHeight
-    const endIndex = (target.scrollTop + target.offsetHeight) / itemHeight
+    const startIndex = scrollTop / itemHeight
+    const endIndex = (scrollTop + offsetHeight) / itemHeight
     this.setVisibleItemIndex(startIndex, endIndex)
 
     // 触底
