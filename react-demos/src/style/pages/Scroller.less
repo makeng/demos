@@ -26,11 +26,34 @@
 .scroller {
   flex: 1;
   overflow: scroll;
+  &-list__item{
+    display: flex;
+    align-items: center;
+  }
 }
 
 .content-item {
+  display: flex;
   border-bottom: 1px solid #ccc;
-  p{
-    text-align: right;
+  padding: 10px;
+  overflow: hidden;
+
+  &__avatar {
+    width: 100/37rem;
+
+    img {
+      width: 70/37rem;
+      height: 70/37rem;
+    }
+  }
+
+  &__desc {
+    div {
+      font-size: @fontSize_L;
+    }
+
+    p {
+      text-align: right;
+    }
   }
 }
