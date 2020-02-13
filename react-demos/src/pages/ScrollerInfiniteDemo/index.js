@@ -45,29 +45,30 @@ class ScrollerEqualHeightDemo extends React.Component {
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
     const { dataList, viewPort } = this.state
+
     return (
       <div className="page">
         <header className="page__header">无限滚动：不卡顿</header>
         <Scroller onScrollToBottom={this.onScrollerScrollToBottom}>
           {
-            dataList.content.map(item =>
+            dataList.content.map(item =>{
               /* 容器 */
-              <div
-                key={item.id}
-                className="content-item"
-              >
-                {/* item 显示的内容 */}
-                <div className="content-item__avatar">
-                  <img
-                    src="https://s.cn.bing.net/th?q=%e6%98%8e%e6%98%9f&dpr=2&pid=MSNJVFeeds&mkt=zh-CN&adlt=moderate" />
+              return <div
+                  key={item.id}
+                  className="content-item"
+                >
+                  {/* item 显示的内容 */}
+                  <div className="content-item__avatar">
+                    <img
+                      src="https://s.cn.bing.net/th?q=%e6%98%8e%e6%98%9f&dpr=2&pid=MSNJVFeeds&mkt=zh-CN&adlt=moderate" />
+                  </div>
+                  <div className="content-item__desc">
+                    <div>{item.desc}</div>
+                    <p>我是一个等高的 item</p>
+                    <p>填充文字：{item.detail}</p>
+                  </div>
                 </div>
-                <div className="content-item__desc">
-                  <div>{item.desc}</div>
-                  <p>我是一个等高的 item</p>
-                  <p>最大高度是</p>
-                </div>
-              </div>
-            )
+              })
           }
         </Scroller>
       </div>
