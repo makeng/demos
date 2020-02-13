@@ -8,6 +8,7 @@ import React from 'react'
 import { on } from '../../../utils/lib/dom'
 import '../../../style/pages/Scroller.less'
 import ScrollerItem from './ScrollerItem'
+import ScrollerItemShadow from './ScrollerItemShadow'
 
 const CALL_TIME_GAP = 100 // 滚动处理间隔
 const VIEW_OFFSET = 600 // 可视范围增加
@@ -18,9 +19,12 @@ class Scroller extends React.Component {
     super(props)
     this.state = {
       viewPort: { start: 0, end: 999 },
+      itemHeightList: []
     }
     // 滚动用参数
     this.lastScrollY = 0
+    // 函数
+    this.onItemShadowComponentDidMount = this.onItemShadowComponentDidMount.bind(this)
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
@@ -73,24 +77,50 @@ class Scroller extends React.Component {
     }
   }
 
+  /**
+   * 影子 item 渲染完毕
+   */
+  onItemShadowComponentDidMount (rect, index) {
+    const { itemHeightList } = this.state
+    const { offsetHeight } = rect
+    // 保存到数组
+    itemHeightList[index] = offsetHeight
+    this.setState(itemHeightList)
+  }
+
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
-    const { viewPort } = this.state
+    const { viewPort, itemHeightList } = this.state
     const { children } = this.props
 
     return (
       <div className="scroller">
-        <div id="scroll-list" onScroll={this.onScroll}>
+        <div key="scroll-list" onScroll={this.onScroll}>
           {
-            children.map((item, index) =>
-              <ScrollerItem
-                key={item.key}
-                viewPortStart={viewPort.start}
-                viewPortEnd={viewPort.end}
-              >
-                {item}
-              </ScrollerItem>
-            )
+            children.map((item, index) => {
+              const { key } = item
+              const height = itemHeightList[index]
+              /* 渲染影子item → 得到height → 渲染item → 清除影子 item */
+              return height
+                ?
+                <ScrollerItem
+                  key={'item' + key}
+                  id={key}
+                  viewPortStart={viewPort.start}
+                  viewPortEnd={viewPort.end}
+                  height={height}
+                >
+                  {item}
+                </ScrollerItem>
+                :
+                <ScrollerItemShadow
+                  key={key}
+                  id={key}
+                  onComponentDidMount={(rect) => this.onItemShadowComponentDidMount(rect, key)}
+                >
+                  {item}
+                </ScrollerItemShadow>
+            })
           }
         </div>
       </div>

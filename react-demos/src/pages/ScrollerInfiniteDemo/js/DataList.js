@@ -7,8 +7,18 @@
 // 数据类
 class DataItem {
   constructor (id, desc) {
+    /**
+     * 创建随机字符串
+     * @returns {string}
+     */
+    const createRandomString = () => Array.from(
+      Array(parseInt(Math.random() * 10)),
+      item => Math.random().toString()
+    ).join('_')
+
     this.id = id
     this.desc = desc
+    this.detail = createRandomString()
   }
 }
 

@@ -1,5 +1,5 @@
 /*----------------------------------------------------------------------------------
-* about:列表item
+* about:列表 item 的影子，用于提取内容高度
 * author:马兆铿
 * date:
 * ----------------------------------------------------------------------------------*/
@@ -8,12 +8,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 //
-class ScrollerItem extends React.Component {
+class ScrollerItemShadow extends React.Component {
   constructor (props) {
     super(props)
-    this.state = {
-      offsetTop: 0,
-    }
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
@@ -27,29 +24,21 @@ class ScrollerItem extends React.Component {
    */
   updateDOMInfo () {
     const rect = ReactDOM.findDOMNode(this)
-    const { offsetTop } = rect
-    this.setState({ offsetTop })
+    this.props.onComponentDidMount(rect)
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
-    const { offsetTop } = this.state
-    const { children, viewPortStart, viewPortEnd, height } = this.props
-    const isVisible = offsetTop < viewPortEnd && offsetTop > viewPortStart
+    const { children } = this.props
 
     return (
-      <div
-        className="scroll-list__item"
-        style={{ height }}
-      >
-        {
-          isVisible && children
-        }
+      <div className="scroll-list__item-shadow">
+        {children}
       </div>
     )
   }
 }
 
-export default ScrollerItem
+export default ScrollerItemShadow
