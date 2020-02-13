@@ -44,7 +44,7 @@ class ScrollerEqualHeightDemo extends React.Component {
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
-    const { dataList, screen } = this.state
+    const { dataList, viewPort } = this.state
     return (
       <div className="page">
         <header className="page__header">无限滚动：不卡顿</header>

@@ -16,7 +16,7 @@ class Scroller extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      screen: { start: 0, end: 999 }
+      viewPort: { start: 0, end: 999 }
     }
     // 滚动用参数
     this.lastScrollY = 0
@@ -42,12 +42,12 @@ class Scroller extends React.Component {
    * 设置可视窗口参数
    */
   setVisibleItemIndex (start, end) {
-    const screen = {
+    const viewPort = {
       start: parseInt(start),
       end: parseInt(end)
     }
-    console.log(`允许显示范围：${JSON.stringify(screen)}`)
-    this.setState({ screen })
+    console.log(`允许显示范围：${JSON.stringify(viewPort)}`)
+    this.setState({ viewPort })
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
@@ -76,7 +76,7 @@ class Scroller extends React.Component {
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render () {
-    const { screen } = this.state
+    const { viewPort } = this.state
     const { children, itemHeight } = this.props
     return (
       <div className="scroller">
@@ -90,7 +90,7 @@ class Scroller extends React.Component {
               >
                 {
                   /* 控制内容是否显示 */
-                  (item.key <= screen.end - ITEM_OFFSET && item.key >= screen.start + ITEM_OFFSET)
+                  (item.key <= viewPort.end - ITEM_OFFSET && item.key >= viewPort.start + ITEM_OFFSET)
                   && item
                 }
               </div>
