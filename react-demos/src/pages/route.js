@@ -6,6 +6,7 @@ import "../style/reset.less";
 const HomePage = asyncRoute(() => import("./HomePage"));
 const ScrollerEqualHeightDemo = asyncRoute(() => import("./ScrollerEqualHeightDemo"));
 const ScrollerAutoHeightDemo = asyncRoute(() => import("./ScrollerAutoHeightDemo"));
+const ScrollerAutoHeightCombineDemo = asyncRoute(() => import("./ScrollerAutoHeightCombineDemo"));
 const FilesDownload = asyncRoute(() => import("./FilesDownload"));
 const ChartHandle = asyncRoute(() => import("./ChartHandle"));
 //route
@@ -24,6 +25,11 @@ export const route = [
     name: "无限滚动-高度不限定item",
     path: "/ScrollerAutoHeightDemo",
     component: ScrollerAutoHeightDemo
+  },
+  {
+    name: "无限滚动-高度自动合并",
+    path: "/ScrollerAutoHeightCombineDemo",
+    component: ScrollerAutoHeightCombineDemo
   },
   {
     name: "文件传输服务",
