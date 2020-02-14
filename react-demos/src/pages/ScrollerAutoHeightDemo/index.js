@@ -1,7 +1,7 @@
 /*----------------------------------------------------------------------------------
 * about:页面对象
 * author:马兆铿
-* date:
+* date:高度自动的Scroller
 * ----------------------------------------------------------------------------------*/
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React from 'react'
@@ -12,7 +12,7 @@ import { DataList } from './js/DataList'
 const APPEND_ITEM_CNT = 50 // 每次增加的数量
 
 //
-class ScrollerEqualHeightDemo extends React.Component {
+class ScrollerAutoHeightDemo extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -76,4 +76,4 @@ class ScrollerEqualHeightDemo extends React.Component {
   }
 }
 
-export default ScrollerEqualHeightDemo
+export default ScrollerAutoHeightDemo

@@ -46,7 +46,7 @@ class Scroller extends React.Component {
   /**
    * 设置可视窗口参数
    */
-  setVisibleItemIndex (start, end) {
+  setVisibleViewPort (start, end) {
     const viewPort = {
       start: parseInt(start),
       end: parseInt(end)
@@ -69,7 +69,7 @@ class Scroller extends React.Component {
     // 设置屏幕
     const startView = scrollTop - VIEW_OFFSET
     const endView = scrollTop + offsetHeight + VIEW_OFFSET
-    this.setVisibleItemIndex(startView, endView)
+    this.setVisibleViewPort(startView, endView)
 
     // 触底
     if (offsetHeight + scrollTop + 100 >= scrollHeight) {
