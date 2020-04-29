@@ -1,19 +1,6 @@
 @import "../standard";
 
 @headerHeight: 50/37rem;
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: @headerHeight;
-  line-height: @headerHeight;
-  text-align: center;
-  font-size: @fontSize_M;
-  box-shadow: 0 10px 10px rgba(0,0,0,.2);
-  width: 100%;
-  z-index: 10;
-  background: #fff;
-}
 
 .page {
   padding-top: @headerHeight;
@@ -22,7 +9,51 @@ header {
   height: 100vh;
 }
 
+.page__header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: @headerHeight;
+  line-height: @headerHeight;
+  text-align: center;
+  font-size: @fontSize_M;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
+  width: 100%;
+  z-index: 10;
+  background: #fff;
+}
+
 .scroller {
   flex: 1;
   overflow: scroll;
+
+  &-list__item {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.content-item {
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  overflow: hidden;
+
+  &__avatar {
+    padding: 5/37rem 10/37rem;
+    img {
+      width: 40/37rem;
+    }
+  }
+
+  &__desc {
+    flex: 1;
+
+    div {
+      font-size: @fontSize_L;
+    }
+    p{
+      word-break: break-all;
+    }
+  }
 }
