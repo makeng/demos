@@ -26,7 +26,7 @@ class Scroller extends React.Component {
     this.lastScrollY = 0
     this.viewPort = { start: 0, end: 999 }
     // 函数
-    this.onItemShadowComponentDidMount = this.onItemShadowComponentDidMount.bind(this)
+    this.onItemDidMount = this.onItemDidMount.bind(this)
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
@@ -102,7 +102,7 @@ class Scroller extends React.Component {
   /**
    * 影子 item 渲染完毕
    */
-  onItemShadowComponentDidMount (rect, index) {
+  onItemDidMount (rect, index) {
     const { scrollCacheList } = this.state
     // 保存到数组
     const { offsetTop, offsetHeight } = rect
@@ -135,7 +135,7 @@ class Scroller extends React.Component {
                 <ScrollerItem
                   key={'item' + key}
                   id={key}
-                  onComponentDidMount={(rect) => this.onItemShadowComponentDidMount(rect, key)}
+                  onComponentDidMount={(rect) => this.onItemDidMount(rect, key)}
                 >
                   {item}
                 </ScrollerItem>
