@@ -5,16 +5,16 @@
 * ----------------------------------------------------------------------------------*/
 import Vuex from 'vuex'
 import Vue from 'vue'
-import cart from './modules/cart'
+import module_cart from './modules/cart'
 
 // 状态管理
 Vue.use(Vuex)
 
-const debug = process.env.NODE_ENV !== 'production'
+const isDebug = process.env.NODE_ENV !== 'production'
 
 export default new Vuex.Store({
   modules: {
-    cart
+    cart: module_cart
   },
-  strict: debug
+  strict: isDebug
 })
