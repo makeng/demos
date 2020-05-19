@@ -38,9 +38,7 @@ const module = {
   },
 
   getters: {
-    getMoney: state => () => {
-      return `¥${state.sum}`
-    }
+    getMoney: state => () => `¥${state.sum}`
   }
 }
 
