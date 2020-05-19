@@ -3,10 +3,19 @@
 * author:马兆铿（13790371603 810768333@qq.com）
 * date:2019-01-10
 * ----------------------------------------------------------------------------------*/
-function greeter (person) {
-  return 'Hello, ' + person
+interface Person {
+  firstName: string,
+  lastName: string
 }
 
-let user = 'Jane User'
 
-document.body.innerHTML = greeter(user)
+function greeter (person: Person) {
+  return `Hello, ${person.firstName} ${person.lastName}`
+}
+
+let user = {
+  firstName: 'Ken',
+  lastName: 'Ma'
+}
+
+console.log(greeter(user))
