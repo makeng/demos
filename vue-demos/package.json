@@ -39,8 +39,8 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-vue": "^5.2.3",
     "jasmine": "^3.4.0",
-    "less": "2.7.3",
-    "less-loader": "4.1.0",
+    "less": "3.5.3",
+    "less-loader": "5.0.0",
     "pre-commit": "^1.2.2",
     "vue-template-compiler": "^2.6.10"
   },
