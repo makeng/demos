@@ -5,36 +5,25 @@
 * ----------------------------------------------------------------------------------*/
 
 /* ----------------------------------------- 开始运行 ----------------------------------------- */
-import React, {PureComponent, PropTypes} from "react";
-import {Link} from "react-router-dom";
-import "../../style/pages/HomePage.less";
-import {List} from 'antd-mobile';
-import {route} from "../route";
+import React, { PureComponent, PropTypes } from 'react'
+import { Link } from 'react-router-dom'
+import '../../style/pages/HomePage.less'
+import { List } from 'antd-mobile'
+import { route } from '../route'
 
-const Item = List.Item;
-const Brief = Item.Brief;
+const Item = List.Item
+const Brief = Item.Brief
 
 //
 class HomePage extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = {};
+    super(props)
   }
-
-  /* ----------------------------------------- 生命周期 ----------------------------------------- */
-  componentDidMount() {
-
-  }
-
-  /* ----------------------------------------- 自定义方法 ----------------------------------------- */
-
-
-  /* ----------------------------------------- 绑定方法 ----------------------------------------- */
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
   render() {
     return (
-      <List renderHeader={() => "页面列表"} className="my-list">
+      <List renderHeader={() => '页面列表'} className="my-list">
         {
           route.map(item =>
             <Link
@@ -46,8 +35,8 @@ class HomePage extends React.Component {
           )
         }
       </List>
-    );
+    )
   }
 }
 
-export default HomePage;
+export default HomePage
