@@ -1,16 +1,9 @@
-/*----------------------------------------------------------------------------------
-* about:页面
-* author:马兆铿
-* date:2019-3-22
-* ----------------------------------------------------------------------------------*/
-
-/* ----------------------------------------- 开始运行 ----------------------------------------- */
 import React from 'react'
 import './index.less'
 import Item from './item'
 
 // 沙盒
-class Sandbox extends React.Component {
+class Sandbox extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -52,7 +45,7 @@ class Sandbox extends React.Component {
       <div className="page-files">
         {list.map((item) => {
           return (
-            <Item {...item} />
+            <Item value={item.value} />
           )
         })}
       </div>
