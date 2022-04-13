@@ -1,6 +1,10 @@
 import React from 'react'
 import './index.less'
-import Item from './item'
+import ListItem from './ListItem'
+import { List } from 'antd-mobile'
+
+const { Item } = List
+const { Brief } = Item
 
 // 沙盒
 class Sandbox extends React.PureComponent {
@@ -25,12 +29,17 @@ class Sandbox extends React.PureComponent {
     setTimeout(() => {
 
       const { list } = this.state
-      const nextList = JSON.parse(JSON.stringify(list)) // can update
-      //  const nextList = [...list] // can't update
+
+      const nextList = [...list] // can't update
+      // const nextList = JSON.parse(JSON.stringify(list)) // can update
       nextList[0].value.value = 'Dog'
       this.setState({ list: nextList })
 
-    }, 1000)
+      /*
+            list[0].value.value = 'Dog'
+            this.setState({})
+      */
+    }, 500)
   }
 
   /* ----------------------------------------- 自定义方法 ----------------------------------------- */
@@ -45,7 +54,13 @@ class Sandbox extends React.PureComponent {
       <div className="page-files">
         {list.map((item) => {
           return (
-            <Item value={item.value} />
+            /*
+               <Item key={item.key}>
+                   <Brief>{item.key}</Brief>
+                   <Brief>{JSON.stringify(item.value)}</Brief>
+               </Item>
+            */
+            <ListItem key={item.key} data={item} />
           )
         })}
       </div>
