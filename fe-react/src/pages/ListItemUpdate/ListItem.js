@@ -5,7 +5,7 @@ import { List } from 'antd-mobile'
 const { Item } = List
 const { Brief } = Item
 
-// 沙盒
+// 列表项更新
 class ListItem extends React.PureComponent {
   render() {
     const { data } = this.props

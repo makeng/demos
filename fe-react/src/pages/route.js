@@ -7,7 +7,7 @@ const HomePage = asyncRoute(() => import("./HomePage"));
 const ScrollerEqualHeightDemo = asyncRoute(() => import("./ScrollerEqualHeightDemo"));
 const ScrollerAutoHeightDemo = asyncRoute(() => import("./ScrollerAutoHeightDemo"));
 const ScrollerAutoHeightCombineDemo = asyncRoute(() => import("./ScrollerAutoHeightCombineDemo"));
-const Sandbox = asyncRoute(() => import("./Sandbox"));
+const ListItemUpdate = asyncRoute(() => import("./ListItemUpdate"));
 const ChartHandle = asyncRoute(() => import("./ChartHandle"));
 //route
 export const route = [
@@ -32,9 +32,9 @@ export const route = [
     component: ScrollerAutoHeightCombineDemo
   },
   {
-    name: "沙盒",
-    path: "/Sandbox",
-    component: Sandbox
+    name: "列表项更新",
+    path: "/ListItemUpdate",
+    component: ListItemUpdate
   },
   {
     name: "图表",
@@ -49,6 +49,6 @@ if (process.env.NODE_ENV !== "production") {
   // ... 有多少异步模块就 require 多少，不可以使用变量或者对象来require
   require("./ScrollerEqualHeightDemo");
   require("./HomePage");
-  require("./Sandbox");
+  require("./ListItemUpdate");
   require("./ChartHandle");
 }

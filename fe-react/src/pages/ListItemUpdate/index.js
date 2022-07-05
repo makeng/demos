@@ -6,8 +6,8 @@ import { List } from 'antd-mobile'
 const { Item } = List
 const { Brief } = Item
 
-// 沙盒
-class Sandbox extends React.PureComponent {
+// 列表项更新
+class ListItemUpdate extends React.PureComponent {
   constructor(props) {
     super(props)
 
@@ -68,4 +68,4 @@ class Sandbox extends React.PureComponent {
   }
 }
 
-export default Sandbox
+export default ListItemUpdate
