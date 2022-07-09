@@ -10,7 +10,7 @@ const VIEW_BOTTOM = 200 // 滚动到触碰底部
 
 //
 class Scroller extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       scrollCacheList: [],
@@ -24,7 +24,7 @@ class Scroller extends React.Component {
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
-  componentDidMount () {
+  componentDidMount() {
     this.attachScrollEvent()
   }
 
@@ -32,7 +32,7 @@ class Scroller extends React.Component {
   /**
    * 绑定滚动事件
    */
-  attachScrollEvent () {
+  attachScrollEvent() {
     const el = document.getElementsByClassName('scroller')[0]
     on(el, 'scroll', e => {
       this.onScroll(e)
@@ -44,7 +44,7 @@ class Scroller extends React.Component {
    * @param offsetTop
    * @returns {boolean|boolean}
    */
-  checkIfVisible (offsetTop) {
+  checkIfVisible(offsetTop) {
     const { viewPort } = this
     return offsetTop > viewPort.start && offsetTop < viewPort.end
   }
@@ -52,7 +52,7 @@ class Scroller extends React.Component {
   /**
    * 设置可视窗口参数
    */
-  setVisibleViewPort (start, end) {
+  setVisibleViewPort(start, end) {
     start = parseInt(start)
     end = parseInt(end)
     const { scrollCacheList, shoreHeight } = this.state
@@ -72,7 +72,7 @@ class Scroller extends React.Component {
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
-  onScroll (e) {
+  onScroll(e) {
     const target = e.target
     const { scrollTop, scrollHeight, offsetHeight } = target // 滚动了多少、真正高度和CSS 高度
 
@@ -96,7 +96,7 @@ class Scroller extends React.Component {
   /**
    * 影子 item 渲染完毕
    */
-  onItemDidMount (rect, index) {
+  onItemDidMount(rect, index) {
     const { scrollCacheList } = this.state
     // 保存到数组
     const { offsetTop, offsetHeight } = rect
@@ -109,7 +109,7 @@ class Scroller extends React.Component {
   }
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
-  render () {
+  render() {
     const { scrollCacheList, shoreHeight } = this.state
     const { children } = this.props
 

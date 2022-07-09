@@ -12,14 +12,14 @@ export const on = (function () {
   if (document.addEventListener) {
     return function (element, event, handler) {
       if (element && event && handler) {
-        element.addEventListener(event, handler, false);
+        element.addEventListener(event, handler, false)
       }
-    };
+    }
   }
   // 不支持
   return function (element, event, handler) {
     if (element && event && handler) {
-      element.attachEvent("on" + event, handler)
+      element.attachEvent('on' + event, handler)
     }
-  };
-})();
+  }
+})()

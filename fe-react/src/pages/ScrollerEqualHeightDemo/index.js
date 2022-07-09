@@ -8,7 +8,7 @@ const ITEM_HEIGHT = 100
 
 //
 class ScrollerEqualHeightDemo extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       dataList: new DataList(),
@@ -17,7 +17,7 @@ class ScrollerEqualHeightDemo extends React.Component {
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
-  componentDidMount () {
+  componentDidMount() {
     this.dataListAppendMoreItems()
   }
 
@@ -25,7 +25,7 @@ class ScrollerEqualHeightDemo extends React.Component {
   /**
    * 加载更多数据
    */
-  dataListAppendMoreItems () {
+  dataListAppendMoreItems() {
     const { dataList } = this.state
     dataList.appendDataItem(APPEND_ITEM_CNT)
     console.log(dataList)
@@ -33,12 +33,12 @@ class ScrollerEqualHeightDemo extends React.Component {
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
-  onScrollerScrollToBottom () {
+  onScrollerScrollToBottom() {
     this.dataListAppendMoreItems()
   }
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
-  render () {
+  render() {
     const { dataList, viewPort } = this.state
     return (
       <div className="page">

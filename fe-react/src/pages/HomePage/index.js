@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../style/pages/HomePage.less'
 import { List } from 'antd-mobile'

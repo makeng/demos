@@ -9,7 +9,7 @@ const VIEW_OFFSET = 600 // 可视范围增加
 
 //
 class Scroller extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       viewPort: { start: 0, end: 999 },
@@ -22,7 +22,7 @@ class Scroller extends React.Component {
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
-  componentDidMount () {
+  componentDidMount() {
     this.attachScrollEvent()
   }
 
@@ -30,7 +30,7 @@ class Scroller extends React.Component {
   /**
    * 绑定滚动事件
    */
-  attachScrollEvent () {
+  attachScrollEvent() {
     const el = document.getElementsByClassName('scroller')[0]
     on(el, 'scroll', e => {
       this.onScroll(e)
@@ -40,7 +40,7 @@ class Scroller extends React.Component {
   /**
    * 设置可视窗口参数
    */
-  setVisibleViewPort (start, end) {
+  setVisibleViewPort(start, end) {
     const viewPort = {
       start: parseInt(start),
       end: parseInt(end)
@@ -50,7 +50,7 @@ class Scroller extends React.Component {
   }
 
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
-  onScroll (e) {
+  onScroll(e) {
     const target = e.target
     const { scrollTop, scrollHeight, offsetHeight } = target // 滚动了多少、真正高度和CSS 高度
 
@@ -74,7 +74,7 @@ class Scroller extends React.Component {
   /**
    * 影子 item 渲染完毕
    */
-  onItemShadowComponentDidMount (rect, index) {
+  onItemShadowComponentDidMount(rect, index) {
     const { itemHeightList } = this.state
     const { offsetHeight } = rect
     // 保存到数组
@@ -83,7 +83,7 @@ class Scroller extends React.Component {
   }
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
-  render () {
+  render() {
     const { viewPort, itemHeightList } = this.state
     const { children } = this.props
 

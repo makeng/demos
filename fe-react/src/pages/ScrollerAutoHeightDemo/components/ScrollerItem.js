@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 //
 class ScrollerItem extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       offsetTop: 0,
@@ -11,7 +11,7 @@ class ScrollerItem extends React.Component {
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
-  componentDidMount () {
+  componentDidMount() {
     this.updateDOMInfo()
   }
 
@@ -19,7 +19,7 @@ class ScrollerItem extends React.Component {
   /**
    * 更新 DOM 信息，用于判断是否应该显示
    */
-  updateDOMInfo () {
+  updateDOMInfo() {
     const rect = ReactDOM.findDOMNode(this)
     const { offsetTop } = rect
     this.setState({ offsetTop })
@@ -28,7 +28,7 @@ class ScrollerItem extends React.Component {
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
-  render () {
+  render() {
     const { offsetTop } = this.state
     const { children, viewPortStart, viewPortEnd, height } = this.props
     const isVisible = offsetTop < viewPortEnd && offsetTop > viewPortStart

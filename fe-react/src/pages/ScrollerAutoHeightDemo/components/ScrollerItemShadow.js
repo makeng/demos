@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom'
 
 //
 class ScrollerItemShadow extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
   }
 
   /* ----------------------------------------- 生命周期 ----------------------------------------- */
-  componentDidMount () {
+  componentDidMount() {
     this.updateDOMInfo()
   }
 
@@ -16,7 +16,7 @@ class ScrollerItemShadow extends React.Component {
   /**
    * 更新 DOM 信息，用于判断是否应该显示
    */
-  updateDOMInfo () {
+  updateDOMInfo() {
     const rect = ReactDOM.findDOMNode(this)
     this.props.onComponentDidMount(rect)
   }
@@ -24,7 +24,7 @@ class ScrollerItemShadow extends React.Component {
   /* ----------------------------------------- 绑定方法 ----------------------------------------- */
 
   /* ----------------------------------------- 渲染 ----------------------------------------- */
-  render () {
+  render() {
     const { children } = this.props
 
     return (

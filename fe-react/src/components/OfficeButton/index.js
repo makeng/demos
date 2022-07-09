@@ -4,9 +4,9 @@
 * date:2017-12-19
 * -------------------------------------------------------------------------------------------------------------------*/
 
-import React, {PureComponent, PropTypes} from "react";
+import React, { PureComponent } from 'react'
 //style
-import './style.less';
+import './style.less'
 
 class OfficeButton extends PureComponent {
   /*-------------------------------------------- 渲染 --------------------------------------------*/
@@ -15,9 +15,9 @@ class OfficeButton extends PureComponent {
       <button className="office-button" onClick={this.props.onClick}>
         {this.props.text}
       </button>
-    );
+    )
   }
   /*-------------------------------------------- 绑定函数 --------------------------------------------*/
 }
 
-export default OfficeButton;
+export default OfficeButton

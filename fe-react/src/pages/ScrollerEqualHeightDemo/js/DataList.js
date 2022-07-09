@@ -6,7 +6,7 @@
 
 // 数据类
 class DataItem {
-  constructor (id, desc) {
+  constructor(id, desc) {
     this.id = id
     this.desc = desc
   }
@@ -14,12 +14,12 @@ class DataItem {
 
 // 仿真数据列表类
 class DataList {
-  constructor () {
+  constructor() {
     this.content = []
     this.itemCnt = 0 // item 数量，用于生成 id
   }
 
-  appendDataItem (cnt) {
+  appendDataItem(cnt) {
     const list = []
     for (let i = 1; i <= cnt; i++) {
       list.push(new DataItem(this.itemCnt, `I am No.${this.itemCnt}`))
