@@ -31,6 +31,48 @@ module.exports = {
   resolve: {
     modules: [path.join(__dirname, 'src'), 'node_modules']
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/, // 用正则表达式匹配文件格式
+        use: [
+          {
+            loader: 'babel-loader'
+          }
+        ],
+        include: path.join(__dirname, 'src')
+      },
+      {
+        test: /\.(css|less)$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [
+            'css-loader',
+            {
+              loader: 'pxrem-loader',
+              options: {
+                root: 37.5,
+                fixed: 6,
+                filter: /^border/,
+                keepPx: false,
+                commentFilter: 'no'
+              }
+            },
+            'less-loader'
+          ]
+        })
+        // 多进程打包
+      },
+      {
+        test: /\.svg$/,
+        use: 'url-loader?limit=10000&mimetype=image/svg+xml'
+      },
+      {
+        test: /\.(png|jpg)$/,
+        use: 'url-loader?limit=10000'
+      }
+    ]
+  },
   plugins: [
     new WebpackMd5Hash(),
     new ManifestPlugin(),
@@ -88,48 +130,5 @@ module.exports = {
       },
       hash: true
     })
-  ],
-
-  module: {
-    rules: [
-      {
-        test: /\.js$/, // 用正则表达式匹配文件格式
-        use: [
-          {
-            loader: 'babel-loader'
-          }
-        ],
-        include: path.join(__dirname, 'src')
-      },
-      {
-        test: /\.(css|less)$/,
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: [
-            'css-loader',
-            {
-              loader: 'pxrem-loader',
-              options: {
-                root: 37.5,
-                fixed: 6,
-                filter: /^border/,
-                keepPx: false,
-                commentFilter: 'no'
-              }
-            },
-            'less-loader'
-          ]
-        })
-        // 多进程打包
-      },
-      {
-        test: /\.svg$/,
-        use: 'url-loader?limit=10000&mimetype=image/svg+xml'
-      },
-      {
-        test: /\.(png|jpg)$/,
-        use: 'url-loader?limit=10000'
-      }
-    ]
-  }
+  ]
 }
