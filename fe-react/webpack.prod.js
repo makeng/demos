@@ -104,7 +104,7 @@ module.exports = {
     ]),
     // 这里需要手动添加 <%=htmlWebpackPlugin.files.webpackManifest%> 到index.html 模板页面
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['commons', 'webpackManifest'],
+      names: ['commons', 'manifest'],
       minChunks: 3
     }),
     new webpack.NoEmitOnErrorsPlugin(),
