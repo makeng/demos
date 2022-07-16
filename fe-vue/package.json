@@ -1,70 +1,20 @@
 {
-  "name": "qrcode-vue-pc",
-  "version": "0.1.0",
+  "name": "vite-vue-typescript-starter",
   "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "test": "jasmine",
-    "serve": "vue-cli-service serve",
-    "build-test": "jasmine && vue-cli-service build --mode test",
-    "build-production": "jasmine && vue-cli-service build --mode production",
-    "lint": "eslint src --ext .js --cache --fix"
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview"
   },
-  "pre-commit": [
-    "lint"
-  ],
   "dependencies": {
-    "axios": "^0.19.0",
-    "babel-plugin-import": "^1.12.0",
-    "core-js": "^2.6.5",
-    "crypto-js": "^3.1.9-1",
-    "dayjs": "^1.8.15",
-    "fastclick": "^1.0.6",
-    "vant": "^2.1.8",
-    "vconsole": "^3.3.4",
-    "vue": "^2.6.10",
-    "vue-loader": "^15.7.1",
-    "vue-router": "^3.0.7",
-    "vuex": "^3.1.1"
+    "vue": "^3.2.37"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-plugin-eslint": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
-    "babel-eslint": "^10.0.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
-    "eslint": "^5.16.0",
-    "eslint-config-airbnb-base": "^13.2.0",
-    "eslint-plugin-html": "^6.0.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-vue": "^5.2.3",
-    "jasmine": "^3.4.0",
-    "less": "3.5.3",
-    "less-loader": "5.0.0",
-    "pre-commit": "^1.2.2",
-    "vue-template-compiler": "^2.6.10"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions"
-  ]
+    "@vitejs/plugin-vue": "^3.0.0",
+    "typescript": "^4.6.4",
+    "vite": "^3.0.0",
+    "vue-tsc": "^0.38.4"
+  }
 }
