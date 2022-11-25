@@ -1,9 +1,9 @@
 @import "../standard";
 
-@headerHeight: 50/37rem;
+@header-height: 50/37rem;
 
 .page {
-  padding-top: @headerHeight;
+  padding-top: @header-height;
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -13,10 +13,10 @@
   position: fixed;
   top: 0;
   left: 0;
-  height: @headerHeight;
-  line-height: @headerHeight;
+  height: @header-height;
+  line-height: @header-height;
   text-align: center;
-  font-size: @fontSize_M;
+  font-size: @font-size-m;
   box-shadow: 0 10px 10px rgba(0, 0, 0, .2);
   width: 100%;
   z-index: 10;
@@ -51,7 +51,7 @@
     flex: 1;
 
     div {
-      font-size: @fontSize_L;
+      font-size: @font-size-l;
     }
 
     p {
