@@ -1,12 +1,26 @@
 @import "../standard";
 
-@header-height: 50/37rem;
-
-.page {
-  padding-top: @header-height;
+.hooks-strange {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100vh;
   font-size: @font-size-l;
+
+  &__num {
+    margin: 20px;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid @color-border;
+    text-align: center;
+  }
+
+  &__button {
+    width: 100px;
+    height: 50px;
+    background-color: @color-theme;
+    border-radius: 8px;
+  }
 }

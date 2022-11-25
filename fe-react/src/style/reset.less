@@ -1,14 +1,14 @@
-/*------------------------------------------------------------------------------------------------------------------
-about：此文件是样式的初始化
-author：马兆铿
-date：2017-11-14
-------------------------------------------------------------------------------------------------------------------*/
 @import './standard.less';
+
+/*-------------------------------------------------- 默认样式 --------------------------------------------------*/
+
+
 /*-------------------------------------------------- 样式重置 --------------------------------------------------*/
 body, ul, figure, li, ol, p, h1, h2, h3, h4, h5, h6, dl, dd, dt, button, textarea, input {
   margin: 0;
   padding: 0;
   font-weight: normal;
+  box-sizing: border-box;
 }
 
 /*文字类*/
@@ -63,67 +63,4 @@ html, body {
   color: @font-color-normal;
   font-size: @font-size-m;
   background: #fff !important;
-}
-
-/*-------------------------------------------------- 通用类 --------------------------------------------------*/
-//居中
-.text-align-center {
-  text-align: center;
-}
-
-.text-indent-1em {
-  text-indent: 1em;
-}
-
-.no-border {
-  border: 0 !important;
-}
-
-.clearfix {
-  clear: both;
-}
-
-.absolute-xy-middle {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.absolute-x-middle {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-}
-
-.absolute-y-middle {
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-
-//文本溢出省略号
-.text-overflow-dots {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/*-------------------------------------------------- 公用类 --------------------------------------------------*/
-.display-none {
-  display: none;
-}
-
-.rotate-180deg {
-  transform: rotate(180deg);
-}
-
-/*-------------------------------------------------- antd --------------------------------------------------*/
-// list
-.am-list {
-  .am-list-header {
-    background: @color-theme;
-    font-size: @font-size-l;
-    color: #fff;
-  }
 }
